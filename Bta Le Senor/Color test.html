@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Palette Preview</title>
+
+  <!-- Google Font: Playfair Display -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #F8F1E9; /* ivory base */
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .fade-shadow {
+  width: 300px;
+  height: 300px;
+  background-color: black;
+  box-shadow: 0 40px 40px -10px rgba(0, 0, 0, 0); /* no top shadow */
+  box-shadow: 0 50px 50px -20px rgba(0, 0, 0, 0.6); /* fade down */}
+
+    .color-box {
+      flex: 1 1 200px;
+      min-width: 180px;
+      height: 120px;
+      border-radius: 8px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .ivory       { background-color: #F8F1E9; color: #2E2E2E; }
+    .rich-gold   { background-color: #D4AF37; }
+    .deep-charcoal { background-color: #2E2E2E; }
+    .warm-taupe  { background-color: #A89F91; }
+    .soft-blush  { background-color: #E8D5C4; color: #2E2E2E; }
+    .royal-navy  { background-color: #2C3E50; }
+
+    .label {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    .hex {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="color-box ivory">
+    <div class="label">Ivory</div>
+    <div class="hex">#F8F1E9</div>
+  </div>
+
+  <div class="color-box rich-gold">
+    <div class="label">Rich Gold</div>
+    <div class="hex">#D4AF37</div>
+  </div>
+
+  <div class="color-box deep-charcoal">
+    <div class="label">Deep Charcoal</div>
+    <div class="hex">#2E2E2E</div>
+  </div>
+
+  <div class="color-box warm-taupe">
+    <div class="label">Warm Taupe</div>
+    <div class="hex">#A89F91</div>
+  </div>
+
+  <div class="color-box soft-blush">
+    <div class="label">Soft Blush</div>
+    <div class="hex">#E8D5C4</div>
+  </div>
+
+  <div class="color-box royal-navy">
+    <div class="label">Royal Navy</div>
+    <div class="hex">#2C3E50</div>
+  </div>
+  <div class="fade-shadow"></div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click-to-Expand Filter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    .filter-wrapper {
+      width: 200px;
+      background-color: #F8F1E9;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      max-height: 50px;
+      cursor: pointer;
+    }
+
+    .filter-wrapper.expanded {
+      max-height: 1000px;
+    }
+
+    .filter-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background-color: #F8F1E9;
+      font-weight: bold;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .filter-toggle img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .filter-content {
+      padding: 15px;
+      background: white;
+      border-top: 1px solid #ddd;
+    }
+
+    .filter-group {
+      margin-bottom: 15px;
+    }
+
+    .filter-group h4 {
+      margin-bottom: 8px;
+      font-size: 1em;
+      color: #333;
+    }
+
+    .filter-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+
+    .price-display {
+      font-size: 0.9em;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    .apply-filters {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .apply-filters:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="filter-wrapper" id="filterPanel">
+    <button class="filter-toggle" onclick="toggleFilter()">
+      <img src="https://img.icons8.com/ios-filled/50/000000/filter.png" alt="Filter Icon">
+      <span>Filter</span>
+    </button>
+
+    <div class="filter-content">
+      <!-- Category Filter -->
+      <div class="filter-group">
+        <h4>Category</h4>
+        <label><input type="checkbox" name="category" value="electronics"> Electronics</label>
+        <label><input type="checkbox" name="category" value="clothing"> Clothing</label>
+        <label><input type="checkbox" name="category" value="home"> Home</label>
+        <label><input type="checkbox" name="category" value="toys"> Toys</label>
+      </div>
+
+      <!-- Price Filter -->
+      <div class="filter-group">
+        <h4>Price Range</h4>
+        <input type="range" min="0" max="1000" step="10" id="price-range" />
+        <div class="price-display">Up to: <span id="price-value">$1000</span></div>
+      </div>
+
+      <!-- Brand Filter -->
+      <div class="filter-group">
+        <h4>Brand</h4>
+        <label><input type="checkbox" name="brand" value="brand-a"> Brand A</label>
+        <label><input type="checkbox" name="brand" value="brand-b"> Brand B</label>
+        <label><input type="checkbox" name="brand" value="brand-c"> Brand C</label>
+      </div>
+
+      <!-- Rating Filter -->
+      <div class="filter-group">
+        <h4>Customer Rating</h4>
+        <label><input type="radio" name="rating" value="4-up"> 4★ & up</label>
+        <label><input type="radio" name="rating" value="3-up"> 3★ & up</label>
+        <label><input type="radio" name="rating" value="2-up"> 2★ & up</label>
+      </div>
+
+      <!-- Availability Filter -->
+      <div class="filter-group">
+        <h4>Availability</h4>
+        <label><input type="checkbox" name="availability" value="in-stock"> In Stock</label>
+        <label><input type="checkbox" name="availability" value="on-sale"> On Sale</label>
+      </div>
+
+      <!-- Apply Button -->
+      <button class="apply-filters">Apply Filters</button>
+    </div>
+  </div>
+
+  <script>
+    const filterPanel = document.getElementById('filterPanel');
+    const priceRange = document.getElementById('price-range');
+    const priceValue = document.getElementById('price-value');
+
+    function toggleFilter() {
+      filterPanel.classList.toggle('expanded');
+    }
+
+    priceRange.addEventListener('input', () => {
+      priceValue.textContent = `$${priceRange.value}`;
+    });
+  </script>
+
+</body>
+</html>
